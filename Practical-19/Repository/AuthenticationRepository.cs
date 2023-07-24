@@ -54,7 +54,7 @@ namespace Practical_19.Repository
 
             var role = new IdentityRole
             {
-                Name = "User" // Change to User to check User Feature
+                Name = model.Role // Change to User to check User Feature
             };
 
             var res = await roleManager.CreateAsync(role);

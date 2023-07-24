@@ -13,6 +13,8 @@ namespace Practical_19.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public string Role { get; set; }
+
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password",

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Practical_19.Interfaces;
 using Practical_19.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -26,6 +27,10 @@ namespace Practical_19.Controllers
         [AllowAnonymous]
         public IActionResult Register()
         {
+            ViewBag.Roles = new List<SelectListItem>() { 
+                new SelectListItem() {Text ="Admin", Value ="Admin"},
+                new SelectListItem() {Text ="User", Value ="User"}
+            };
             return View();
         }
 
@@ -46,6 +51,10 @@ namespace Practical_19.Controllers
                     ModelState.AddModelError("", error.Description);
                 }
             }
+            ViewBag.Roles = new List<SelectListItem>() {
+                new SelectListItem() {Text ="Admin", Value ="Admin"},
+                new SelectListItem() {Text ="User", Value ="User"}
+            };
             return View();
 
         }
